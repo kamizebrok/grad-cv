@@ -154,119 +154,121 @@ function App() {
   const langContent = content[language];
 
   return (
-    <div id="root">
-      <header>
-        <div className="language-toggle">
-          <img
-            src={enFlag}
-            alt="English"
-            onClick={() => handleLanguageChange('en')}
-            className={language === 'en' ? 'active' : ''}
+    <BrowserRouter basename="/grad-cv">
+      <div id="root">
+        <header>
+          <div className="language-toggle">
+            <img
+              src={enFlag}
+              alt="English"
+              onClick={() => handleLanguageChange('en')}
+              className={language === 'en' ? 'active' : ''}
+            />
+            <img
+              src={plFlag}
+              alt="Polski"
+              onClick={() => handleLanguageChange('pl')}
+              className={language === 'pl' ? 'active' : ''}
+            />
+          </div>
+          <img src={profilePic} alt="Profile" className="profile-pic" />
+          <h1>{langContent.header.name}</h1>
+          <p>{langContent.header.title}</p>
+        </header>
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <main>
+                <section>
+                  <h2>{langContent.about.title}</h2>
+                  <p>{langContent.about.description}</p>
+                </section>
+
+                <section>
+                  <h2>{langContent.languages.title}</h2>
+                  <ul>
+                    {langContent.languages.items.map((item, index) => (
+                      <li key={index}>
+                        <strong>{item.name}</strong>: {item.level}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>{langContent.experience.title}</h2>
+                  <ul>
+                    {langContent.experience.items.map((item, index) => (
+                      <li key={index}>
+                        <strong>{item.role}</strong> - {item.company}
+                        <p>{item.description}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>{langContent.education.title}</h2>
+                  <ul>
+                    {langContent.education.items.map((item, index) => (
+                      <li key={index}>
+                        <strong>{item.degree}</strong> - {item.school}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>{langContent.certificates.title}</h2>
+                  <ul>
+                    {langContent.certificates.items.map((item, index) => (
+                      <li key={index}>
+                        <Link to={item.path}>{item.name}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>{langContent.contact.title}</h2>
+                  <p>{langContent.contact.email}</p>
+                  <p>{langContent.contact.phone}</p>
+                  <p>
+                    {langContent.contact.linkedin.split(': ')[0]}:{' '}
+                    <a
+                      href={`https://${langContent.contact.linkedin.split(': ')[1]}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {langContent.contact.linkedin.split(': ')[1]}
+                    </a>
+                  </p>
+                  <p>{langContent.contact.github.split(': ')[0]}:{' '}
+                    <a
+                      href={`https://${langContent.contact.github.split(': ')[1]}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {langContent.contact.github.split(': ')[1]}
+                    </a>
+
+                  </p>
+                </section>
+              </main>
+            }
           />
-          <img
-            src={plFlag}
-            alt="Polski"
-            onClick={() => handleLanguageChange('pl')}
-            className={language === 'pl' ? 'active' : ''}
-          />
-        </div>
-        <img src={profilePic} alt="Profile" className="profile-pic" />
-        <h1>{langContent.header.name}</h1>
-        <p>{langContent.header.title}</p>
-      </header>
+          <Route path="/certificate/english" element={<EnglishCertificate />} />
+          <Route path="/certificate/diploma" element={<DegreeDiploma />} />
+          <Route path="/certificate/china" element={<ChinaCertificate />} />
+        </Routes>
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <main>
-              <section>
-                <h2>{langContent.about.title}</h2>
-                <p>{langContent.about.description}</p>
-              </section>
-
-              <section>
-                <h2>{langContent.languages.title}</h2>
-                <ul>
-                  {langContent.languages.items.map((item, index) => (
-                    <li key={index}>
-                      <strong>{item.name}</strong>: {item.level}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-
-              <section>
-                <h2>{langContent.experience.title}</h2>
-                <ul>
-                  {langContent.experience.items.map((item, index) => (
-                    <li key={index}>
-                      <strong>{item.role}</strong> - {item.company}
-                      <p>{item.description}</p>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-
-              <section>
-                <h2>{langContent.education.title}</h2>
-                <ul>
-                  {langContent.education.items.map((item, index) => (
-                    <li key={index}>
-                      <strong>{item.degree}</strong> - {item.school}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-
-              <section>
-                <h2>{langContent.certificates.title}</h2>
-                <ul>
-                  {langContent.certificates.items.map((item, index) => (
-                    <li key={index}>
-                      <Link to={item.path}>{item.name}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-
-              <section>
-                <h2>{langContent.contact.title}</h2>
-                <p>{langContent.contact.email}</p>
-                <p>{langContent.contact.phone}</p>
-                <p>
-                  {langContent.contact.linkedin.split(': ')[0]}:{' '}
-                  <a
-                    href={`https://${langContent.contact.linkedin.split(': ')[1]}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {langContent.contact.linkedin.split(': ')[1]}
-                  </a>
-                </p>
-                <p>{langContent.contact.github.split(': ')[0]}:{' '}
-                  <a
-                    href={`https://${langContent.contact.github.split(': ')[1]}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {langContent.contact.github.split(': ')[1]}
-                  </a>
-
-                </p>
-              </section>
-            </main>
-          }
-        />
-        <Route path="/certificate/english" element={<EnglishCertificate />} />
-        <Route path="/certificate/diploma" element={<DegreeDiploma />} />
-        <Route path="/certificate/china" element={<ChinaCertificate />} />
-      </Routes>
-
-      <footer>
-        <p>{langContent.footer}</p>
-      </footer>
-    </div>
+        <footer>
+          <p>{langContent.footer}</p>
+        </footer>
+      </div>
+    </BrowserRouter>
   );
 }
 
