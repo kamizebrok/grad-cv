@@ -1,0 +1,129 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #646cff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+header button:hover {
+  background-color: #4a51a3;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+section ul {
+  list-style: none;
+  padding: 0;
+}
+
+section ul li {
+  margin: 0.5rem 0;
+}
+
+h1, h2 {
+  color: #646cff;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.language-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.language-toggle img {
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.language-toggle img.active {
+  opacity: 1;
+  border: 2px solid #646cff;
+  border-radius: 3px;
+}
+
+.language-toggle img:hover {
+  opacity: 1;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 1rem auto;
+  display: block;
+  border: 3px solid #646cff;
+}
