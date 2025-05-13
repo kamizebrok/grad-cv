@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import enFlag from './assets/us-flag.png';
 import plFlag from './assets/pl-flag.png';
