@@ -1,44 +1,17 @@
+/* Ogólne style */
+body {
+  background-color: #1e1e2f; /* Ciemne tło */
+  color: #e0e0e0; /* Jasnoszary tekst */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
 
 header {
@@ -60,30 +33,12 @@ header button:hover {
   background-color: #4a51a3;
 }
 
-section {
-  margin-bottom: 2rem;
-}
-
-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-section ul li {
-  margin: 0.5rem 0;
-}
-
 h1, h2 {
   color: #646cff;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 1rem;
+section {
+  margin-bottom: 2rem;
 }
 
 footer {
@@ -93,6 +48,69 @@ footer {
   color: #888;
 }
 
+/* Stylizacja sekcji Skills */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.skill-item {
+  background-color: #2a2a3d; /* Ciemnoszare tło */
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #e0e0e0; /* Jasnoszary tekst */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out, background-color 0.2s;
+}
+
+.skill-item:hover {
+  transform: scale(1.1);
+  background-color: #3a3a4d; /* Jaśniejsze tło przy hover */
+}
+
+/* Stylizacja sekcji Languages */
+.languages-table {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.languages-table td {
+  padding: 10px;
+  border: 1px solid #444; /* Ciemnoszare obramowanie */
+  text-align: center;
+  color: #e0e0e0; /* Jasnoszary tekst */
+}
+
+.languages-table tr:nth-child(even) {
+  background-color: #2a2a3d; /* Ciemnoszare tło */
+}
+
+.languages-table tr:hover {
+  background-color: #3a3a4d; /* Jaśniejsze tło przy hover */
+}
+
+.languages-table td strong {
+  color: #646cff; /* Akcent kolorystyczny */
+}
+
+/* Stylizacja obrazka profilowego */
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 1rem auto;
+  display: block;
+  border: 3px solid #646cff;
+}
+
+/* Stylizacja przełącznika języków */
 .language-toggle {
   position: absolute;
   top: 10px;
@@ -119,11 +137,48 @@ footer {
   opacity: 1;
 }
 
-.profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin: 1rem auto;
-  display: block;
-  border: 3px solid #646cff;
+/* Stylizacja list */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+/* Stylizacja sekcji Experience */
+section ul {
+  list-style: none;
+  padding: 0;
+}
+
+section ul li {
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
+section ul li strong {
+  color: #646cff;
+}
+
+/* Wyśrodkowanie sekcji Education i Certificates */
+.education-container,
+.certificates-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.education-container ul,
+.certificates-container ul {
+  padding: 0;
+  text-align: center;
+  align-content: center;
+}
+
+.education-container li,
+.certificates-container li {
+  margin-bottom: 1rem;
 }

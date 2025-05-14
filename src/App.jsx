@@ -20,7 +20,21 @@ function App() {
       about: {
         title: 'About Me',
         description:
-          'I am a passionate software engineer with experience in building web applications using modern technologies like React, Node.js, and more. I love solving problems and creating user-friendly solutions.',
+          'Recent graduate with a Bachelor of Science in Engineering in Computer Science with a specialization in Data Analysis Engineering, graduated from the Faculty of Applied Mathematics at the Silesian University of Technology. My skills cover both data science (Python, Pandas, PyTorch) and web development (JavaScript, React), complemented by knowledge of C# and object-oriented programming applied in various projects. Eager to develop as a junior software engineer, I combine analytical thinking with practical coding skills. Outside of work, I enjoy chess, basketball, tech innovations and Chinese cuisine.',
+      },
+      skills: {
+        title: 'Skills',
+        items: [
+          'JavaScript',
+          'React',
+          'Python',
+          'Pandas',
+          'PyTorch',
+          'C#',
+          'Git',
+          'SQL',
+          'HTML & CSS',
+        ],
       },
       languages: {
         title: 'Languages',
@@ -35,16 +49,22 @@ function App() {
         title: 'Experience',
         items: [
           {
-            role: 'Programming and Data Analysis Apprentice',
+            role: 'Programming and Data Analysis Interhip',
             company: 'IMMOQEE Sp. z o.o. (Jul 2024 - Sep 2024)',
             description:
-              'Data processing and analysis, Design and implementation of web-based interfaces for internal tools, IT support in the development, enhancement, and evaluation of research and operational tools existing within the company.',
+              'Data processing and analysis, design and implementation of web-based interfaces for internal tools, IT support in the development, enhancement, and evaluation of research and operational tools.',
+          },
+          {
+            role: 'Data Science Intership',
+            company: 'Faculty of Applied Mathematics, Silesian University of Technology (Nov 2024 - Feb 2025)',
+            description:
+              'Data analysis of Eurostat ferry traffic and development of a web application.',
           },
           {
             role: 'Tutor',
             company: 'GoStudent (Oct 2021 - Mar 2025)',
             description:
-              'Teaching Mathematics, Physics, and Computer Science at an advanced level, Work effectively with diverse clients, including high school students, parents and college students',
+              'Teaching Mathematics, Physics, and Computer Science at an advanced level, work effectively with diverse clients, including high school students, parents and college students',
           },
         ],
       },
@@ -58,21 +78,21 @@ function App() {
           {
             degree: 'Summer School in Emerging Technologies in Electronics Engineering',
             school: 'Beijing Institute of Technology (2024)',
-          }
+          },
         ],
       },
       certificates: {
         title: 'Certificates',
         items: [
-          { name: 'English Certificate', path: '/certificate/english' },
-          { name: 'Degree Diploma', path: '/certificate/diploma' },
-          { name: 'China Certificate', path: '/certificate/china' },
+          { name: 'English C1 Proficiency Certificate', path: '/certificate/english' },
+          { name: 'Bachelor of Science Degree Diploma', path: '/certificate/diploma' },
+          { name: 'Beijing Institute of Technology Certificate', path: '/certificate/china' },
         ],
       },
       contact: {
         title: 'Contact & GitHub Projects',
         email: 'Email: zebrokkamil@outlook.com',
-        phone: 'Phone: +123 456 7890',
+        phone: 'Phone: +48 603424709',
         linkedin: 'LinkedIn: https://www.linkedin.com/in/kamil-%C5%BCebrok-2a0a77257/',
         github: 'Github: https://github.com/kamizebrok',
       },
@@ -86,7 +106,21 @@ function App() {
       about: {
         title: 'O Mnie',
         description:
-          'Jestem pasjonatem inżynierii oprogramowania z doświadczeniem w tworzeniu aplikacji internetowych przy użyciu nowoczesnych technologii, takich jak React, Node.js i inne. Uwielbiam rozwiązywać problemy i tworzyć przyjazne dla użytkownika rozwiązania.',
+          'Absolwent studiów inżynierskich na kierunku Informatyka o specjalności Inżynieria Analizy Danych, ukończonych na Wydziale Matematyki Stosowanej Politechniki Śląskiej. Moje umiejętności obejmują zarówno naukę o danych (Python, Pandas, PyTorch), jak i rozwój aplikacji webowych (JavaScript, React), uzupełnione wiedzą z zakresu C# oraz programowania obiektowego stosowanego w różnych projektach. Chętnie rozwijam się jako młodszy inżynier oprogramowania, łącząc myślenie analityczne z praktycznymi umiejętnościami kodowania. Poza pracą interesuję się szachami, koszykówką, nowinkami technologicznymi, uwielbiam chińską kuchnię.',
+      },
+      skills: {
+        title: 'Umiejętności',
+        items: [
+          'JavaScript',
+          'React',
+          'Python',
+          'Pandas',
+          'PyTorch',
+          'C#',
+          'Git',
+          'SQL',
+          'HTML & CSS',
+        ],
       },
       languages: {
         title: 'Znajomość Języków',
@@ -94,7 +128,7 @@ function App() {
           { name: 'Polski', level: 'Ojczysty' },
           { name: 'Angielski', level: 'Biegły (C1)' },
           { name: 'Rosyjski', level: 'Średniozaawansowany (B1)' },
-          {name: 'Chiński', level: 'Podstawowy (A1)' },
+          { name: 'Chiński', level: 'Podstawowy (A1)' },
         ],
       },
       experience: {
@@ -104,7 +138,13 @@ function App() {
             role: 'Stażysta z zakresu programowania i analizy danych',
             company: 'IMMOQEE Sp. z o.o. (Lipiec 2024 - Wrzesień 2024)',
             description:
-              'Analiza i przetwarzanie danych, projektowanie i wdrażanie interfejsów webowych dla narzędzi wewnętrznych, wsparcie informatyczne w zakresie rozwoju, doskonalenia i oceny narzędzi badawczych i operacyjnych istniejących w firmie',
+              'Analiza i przetwarzanie danych, projektowanie i wdrażanie interfejsów webowych dla narzędzi wewnętrznych, wsparcie informatyczne w zakresie rozwoju, doskonalenia i oceny narzędzi istniejących w firmie.',
+          },
+          {
+            role: 'Praktykant',
+            company: 'Wydział Matematyki Stosowanej, Politechnika Śląska (Listopad 2024 - Luty 2025)',
+            description:
+              'Analiza danych Eurostatu dotyczących ruchu promów, ich wizualizacja oraz tworzenie aplikacji webowej.',
           },
           {
             role: 'Korepetytor',
@@ -124,23 +164,22 @@ function App() {
           {
             degree: 'Letnia Szkoła w Zakresie Nowych Technologii w Inżynierii Elektroniki',
             school: 'Beijing Institute of Technology (2024)',
-          }
-
+          },
         ],
       },
       certificates: {
         title: 'Certyfikaty',
         items: [
-          { name: 'Certyfikat z Angielskiego', path: '/certificate/english' },
+          { name: 'Zaświadczenie C1 z Języka Angielskiego', path: '/certificate/english' },
           { name: 'Dyplom Ukończenia Studiów', path: '/certificate/diploma' },
           { name: 'Certyfikat Beijing Institute of Technology', path: '/certificate/china' },
         ],
       },
       contact: {
-        title: 'Kontakt',
+        title: 'Kontakt & Projekty GitHub',
         email: 'Email: zebrokkamil@outlook.com',
-        phone: 'Telefon: +123 456 7890',
-        linkedin: 'LinkedIn: linkedin.com',
+        phone: 'Telefon: +48 603424709',
+        linkedin: 'LinkedIn: https://www.linkedin.com/in/kamil-%C5%BCebrok-2a0a77257/',
         github: 'Github: https://github.com/kamizebrok',
       },
       footer: '© 2025 Kamil Żebrok',
@@ -187,14 +226,30 @@ function App() {
                 </section>
 
                 <section>
-                  <h2>{langContent.languages.title}</h2>
-                  <ul>
-                    {langContent.languages.items.map((item, index) => (
-                      <li key={index}>
-                        <strong>{item.name}</strong>: {item.level}
-                      </li>
+                  <h2>{langContent.skills.title}</h2>
+                  <div className="skills-container">
+                    {langContent.skills.items.map((skill, index) => (
+                      <span key={index} className="skill-item">
+                        {skill}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
+                </section>
+
+                <section>
+                  <h2>{langContent.languages.title}</h2>
+                  <table className="languages-table">
+                    <tbody>
+                      {langContent.languages.items.map((item, index) => (
+                        <tr key={index}>
+                          <td>
+                            <strong>{item.name}</strong>
+                          </td>
+                          <td>{item.level}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </section>
 
                 <section>
@@ -209,7 +264,7 @@ function App() {
                   </ul>
                 </section>
 
-                <section>
+                <section className="education-container">
                   <h2>{langContent.education.title}</h2>
                   <ul>
                     {langContent.education.items.map((item, index) => (
@@ -220,7 +275,7 @@ function App() {
                   </ul>
                 </section>
 
-                <section>
+                <section className="certificates-container">
                   <h2>{langContent.certificates.title}</h2>
                   <ul>
                     {langContent.certificates.items.map((item, index) => (
@@ -253,7 +308,6 @@ function App() {
                     >
                       {langContent.contact.github.split(': ')[1]}
                     </a>
-
                   </p>
                 </section>
               </main>
