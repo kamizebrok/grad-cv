@@ -1,6 +1,6 @@
 # Portfolio CV 
 
-Myn interactive CV/portfolio built with **React + Vite** and deployed on GitHub Pages.
+My interactive CV/portfolio built with **React + Vite** and deployed on GitHub Pages.
 
 ## 🔧 Technologies Used
 - React 18
