@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import enFlag from './assets/us-flag.png';
@@ -7,9 +7,18 @@ import profilePic from './assets/profile.jpg';
 import EnglishCertificate from './components/EnglishCertificate';
 import DegreeDiploma from './components/DegreeDiploma';
 import ChinaCertificate from './components/BIT';
+import Projects from './components/Projects';
+import ProjectDetails from './components/ProjectDetails';
+import GradeManagementPDF from './components/GradeManagementPDF';
+import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 function App() {
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState('pl');
+  const [pageVisible, setPageVisible] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setPageVisible(true), 200);
+  }, []);
 
   const content = {
     en: {
@@ -23,7 +32,7 @@ function App() {
           'Recent graduate with a Bachelor of Science in Engineering in Computer Science with a specialization in Data Analysis Engineering, graduated from the Faculty of Applied Mathematics at the Silesian University of Technology. My skills cover both data science (Python, Pandas, PyTorch) and web development (JavaScript, React), complemented by knowledge of C# and object-oriented programming applied in various projects. Eager to develop as a junior software engineer, I combine analytical thinking with practical coding skills. Outside of work, I enjoy chess, basketball, tech innovations and Chinese cuisine.',
       },
       skills: {
-        title: 'Skills',
+        title: 'Technologies',
         items: [
           'JavaScript',
           'React',
@@ -89,8 +98,14 @@ function App() {
           { name: 'Beijing Institute of Technology Certificate', path: '/certificate/china' },
         ],
       },
+      projects: {
+        title: 'Projects & Blog',
+        description: 'Explore my previous projects and read detailed descriptions.',
+        linkText: 'See my projects',
+        path: '/projects',
+      },
       contact: {
-        title: 'Contact & GitHub Projects',
+        title: 'Contact & GitHub',
         email: 'Email: zebrokkamil@outlook.com',
         phone: 'Phone: +48 603424709',
         linkedin: 'LinkedIn: www.linkedin.com/in/kamil-%C5%BCebrok-2a0a77257/',
@@ -109,7 +124,7 @@ function App() {
           'Absolwent studiów inżynierskich na kierunku Informatyka o specjalności Inżynieria Analizy Danych, ukończonych na Wydziale Matematyki Stosowanej Politechniki Śląskiej. Moje umiejętności obejmują zarówno naukę o danych (Python, Pandas, PyTorch), jak i rozwój aplikacji webowych (JavaScript, React), uzupełnione wiedzą z zakresu C# oraz programowania obiektowego stosowanego w różnych projektach. Chętnie rozwijam się jako młodszy inżynier oprogramowania, łącząc myślenie analityczne z praktycznymi umiejętnościami kodowania. Poza pracą interesuję się szachami, koszykówką, nowinkami technologicznymi, uwielbiam chińską kuchnię.',
       },
       skills: {
-        title: 'Umiejętności',
+        title: 'Technologie',
         items: [
           'JavaScript',
           'React',
@@ -175,6 +190,12 @@ function App() {
           { name: 'Certyfikat Beijing Institute of Technology', path: '/certificate/china' },
         ],
       },
+      projects: {
+        title: 'Projekty & Blog',
+        description: 'Poznaj moje wcześniejsze projekty i przeczytaj ich opisy.',
+        linkText: 'Zobacz projekty',
+        path: '/projects',
+      },
       contact: {
         title: 'Kontakt & Projekty GitHub',
         email: 'Email: zebrokkamil@outlook.com',
@@ -210,113 +231,141 @@ function App() {
               className={language === 'pl' ? 'active' : ''}
             />
           </div>
-          <img src={profilePic} alt="Profile" className="profile-pic" />
-          <h1>{langContent.header.name}</h1>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <img src={profilePic} alt="Profile" className="profile-pic" style={{ cursor: 'pointer' }} />
+            <h1 style={{ cursor: 'pointer' }}>{langContent.header.name}</h1>
+          </Link>
           <p>{langContent.header.title}</p>
         </header>
 
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <main>
-                <section>
-                  <h2>{langContent.about.title}</h2>
-                  <p>{langContent.about.description}</p>
-                </section>
+        <div className={`page-fade${pageVisible ? ' visible' : ''}`}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <main>
+                  <section>
+                    <h2>{langContent.about.title}</h2>
+                    <p>{langContent.about.description}</p>
+                  </section>
 
-                <section>
-                  <h2>{langContent.skills.title}</h2>
-                  <div className="skills-container">
-                    {langContent.skills.items.map((skill, index) => (
-                      <span key={index} className="skill-item">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </section>
-
-                <section>
-                  <h2>{langContent.languages.title}</h2>
-                  <table className="languages-table">
-                    <tbody>
-                      {langContent.languages.items.map((item, index) => (
-                        <tr key={index}>
-                          <td>
-                            <strong>{item.name}</strong>
-                          </td>
-                          <td>{item.level}</td>
-                        </tr>
+                  <section>
+                    <h2>{langContent.skills.title}</h2>
+                    <div className="skills-container">
+                      {langContent.skills.items.map((skill, index) => (
+                        <span key={index} className="skill-item">
+                          {skill}
+                        </span>
                       ))}
-                    </tbody>
-                  </table>
-                </section>
+                    </div>
+                  </section>
 
-                <section>
-                  <h2>{langContent.experience.title}</h2>
-                  <ul>
-                    {langContent.experience.items.map((item, index) => (
-                      <li key={index}>
-                        <strong>{item.role}</strong> - {item.company}
-                        <p>{item.description}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
+                  <section>
+                    <h2>{langContent.languages.title}</h2>
+                    <table className="languages-table">
+                      <tbody>
+                        {langContent.languages.items.map((item, index) => (
+                          <tr key={index}>
+                            <td>
+                              <strong>{item.name}</strong>
+                            </td>
+                            <td>{item.level}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </section>
 
-                <section className="education-container">
-                  <h2>{langContent.education.title}</h2>
-                  <ul>
-                    {langContent.education.items.map((item, index) => (
-                      <li key={index}>
-                        <strong>{item.degree}</strong> - {item.school}
-                      </li>
-                    ))}
-                  </ul>
-                </section>
+                  <section>
+                    <h2>{langContent.experience.title}</h2>
+                    <div className="experience-list">
+                      {langContent.experience.items.map((item, index) => (
+                        <div className="experience-card" key={index}>
+                          <span className="company">{item.company}</span>
+                          <strong>{item.role}</strong>
+                          <p>{item.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
 
-                <section className="certificates-container">
-                  <h2>{langContent.certificates.title}</h2>
-                  <ul>
-                    {langContent.certificates.items.map((item, index) => (
-                      <li key={index}>
-                        <Link to={item.path}>{item.name}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
+                  <section className="education-container">
+                    <h2>{langContent.education.title}</h2>
+                    <div className="education-list">
+                      {langContent.education.items.map((item, index) => (
+                        <div className="education-card" key={index}>
+                          <span className="degree">{item.degree}</span>
+                          <div className="school">{item.school}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
 
-                <section>
-                  <h2>{langContent.contact.title}</h2>
-                  <p>{langContent.contact.email}</p>
-                  <p>{langContent.contact.phone}</p>
-                  <p>
-                    {langContent.contact.linkedin.split(': ')[0]}:{' '}
-                    <a
-                      href={`https://${langContent.contact.linkedin.split(': ')[1]}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {langContent.contact.linkedin.split(': ')[1]}
-                    </a>
-                  </p>
-                  <p>{langContent.contact.github.split(': ')[0]}:{' '}
-                    <a
-                      href={`https://${langContent.contact.github.split(': ')[1]}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {langContent.contact.github.split(': ')[1]}
-                    </a>
-                  </p>
-                </section>
-              </main>
-            }
-          />
-          <Route path="/certificate/english" element={<EnglishCertificate />} />
-          <Route path="/certificate/diploma" element={<DegreeDiploma />} />
-          <Route path="/certificate/china" element={<ChinaCertificate />} />
-        </Routes>
+                  <section className="certificates-container">
+                    <h2>{langContent.certificates.title}</h2>
+                    <div className="certificates-list">
+                      {langContent.certificates.items.map((item, index) => (
+                        <Link to={item.path} key={index} className="certificate-card">
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </section>
+
+                  <section className="projects-highlight">
+                    <h2>{langContent.projects.title}</h2>
+                    <p className="projects-invite">
+                      {language === 'pl'
+                        ? 'Sprawdź moje projekty i zobacz, jak łączę wiedzę z praktyką! Każdy projekt to konkretne rozwiązania i nowoczesne technologie.'
+                        : 'Discover my projects and see how I turn knowledge into real solutions! Each project showcases modern technologies and practical skills.'}
+                    </p>
+                    <Link to={langContent.projects.path} className="projects-button">
+                      {langContent.projects.linkText} 🚀
+                    </Link>
+                  </section>
+
+                  <section>
+                    <h2>{langContent.contact.title}</h2>
+                    <div className="contact-cards">
+                      <div className="contact-card">
+                        <FaEnvelope className="contact-icon" />
+                        <span>{langContent.contact.email.replace('Email: ', '')}</span>
+                      </div>
+                      <div className="contact-card">
+                        <FaPhone className="contact-icon" />
+                        <span>{langContent.contact.phone.replace(/(Phone: |Telefon: )/, '')}</span>
+                      </div>
+                      <a
+                        className="contact-card"
+                        href={`https://${langContent.contact.linkedin.split(': ')[1]}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaLinkedin className="contact-icon" />
+                        <span>LinkedIn</span>
+                      </a>
+                      <a
+                        className="contact-card"
+                        href={`https://${langContent.contact.github.split(': ')[1]}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaGithub className="contact-icon" />
+                        <span>GitHub</span>
+                      </a>
+                    </div>
+                  </section>
+                </main>
+              }
+            />
+            <Route path="/certificate/english" element={<EnglishCertificate />} />
+            <Route path="/certificate/diploma" element={<DegreeDiploma />} />
+            <Route path="/certificate/china" element={<ChinaCertificate />} />
+            <Route path="/projects" element={<Projects language={language} />} />
+            <Route path="/projects/:projectId" element={<ProjectDetails language={language} />} />
+            <Route path="/projects/grade-management-details" element={<GradeManagementPDF language={language} />} />
+          </Routes>
+        </div>
 
         <footer>
           <p>{langContent.footer}</p>
